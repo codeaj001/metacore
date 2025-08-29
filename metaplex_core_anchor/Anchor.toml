@@ -1,0 +1,22 @@
+[toolchain]
+package_manager = "yarn"
+anchor_version = "0.30.1"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+metaplex_core_anchor = "H5N1KkLRidcWdfBDcftW6MwDTquCj4NxEfBQ72XXQiyN"
+mpl_core = "CoREENxbYwzQxHzNCvh2fYsG9kB1iG2zAn7SrPjzYh1A"
+
+[registry]
+url = "https://api.apr.dev"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "yarn run mocha -t 1000000 tests/"
+start-localnet = "solana-test-validator -r --reset --bind-address 0.0.0.0 --rpc-port 8899 --url http://localhost:8899 --bpf-program CoREENxbYwzQxHzNCvh2fYsG9kB1iG2zAn7SrPjzYh1A core.so"
